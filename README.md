@@ -22,7 +22,7 @@ Use luatex to build the project, otherwise it will mess up your formatting:
 
 The project uses the MIT-license: [`LICENSE.md`](LICENSE.md)
 
-## Some CV-tipps
+## Some CV tips
 
 * Adapt your CV for each company (Make it relevant for the position)
 * Use the company-lingo in your CV (for keyword-search algorithms)
