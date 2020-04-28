@@ -1,0 +1,185 @@
+%!TEX TS-program = lualatex
+%!TEX encoding   = UTF-8 Unicode
+
+% This is a CV-template designed by Bastian Rieck (@Pseudomanifold) and adapted by Moritz Gueck (@MoritzGuck)
+
+
+% This is the simplest class to start with. You may want to change the
+% paper format or the standard font size.
+\documentclass[a4paper,10pt]{article}
+
+\usepackage[british]{babel}       % Change this 
+\usepackage{fontspec}             % Font selection
+\usepackage{fontawesome}          % Symbols/icons
+\usepackage{float}                % for placement of tables and pictures         
+\usepackage{amsmath}              % for certain symbols
+
+% Change this depending on your own preferences. I personally prefer
+% nice ligatures and 'old style' numbers. Additionally, the way each
+% font is set up ensures that the layout is very uniform---mostly, I
+% achieve this effect using `MatchLowercase`.
+%
+% TODO: Make sure you select a font with small caps here, unless you also change the section style. See below.
+\defaultfontfeatures{Ligatures=TeX}
+\setmainfont[UprightFeatures = {FontIndex=7},
+            BoldFeatures = {FontIndex=2} ,
+            ItalicFeatures = {FontIndex=5} ,
+            BoldItalicFeatures = {FontIndex=0}]{Avenir_Next.ttc} % I have mixed some of the fonts up for simplicity
+\setsansfont[Scale=MatchLowercase]{Avenir_Next.ttc}
+\setmonofont[Scale=MatchLowercase]{Avenir_Next.ttc}
+
+\setlength{\marginparsep}{10pt} % Separation of margin notes
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Document layout
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Permits a very precise adjustment of all the margins. Since a CV is
+% a document where *you* should exhibit *your* preferences, feel free
+% to adjust this the way you want.
+%
+% I am not aware of any good rules here.
+\usepackage{geometry}
+\geometry{
+  a4paper,
+  textwidth      = 14.0cm,
+  textheight     = 25.0cm,
+  marginparwidth =  2.5cm
+}
+
+\setlength{\parindent}{0pt}     % No indentations for paragraphs
+\setlength{\skip\footins}{2cm}  % Reduced footer distance
+
+% A nice way to typeset proper ordinal superscripts
+\newcommand  {\rd}{\textsuperscript{\textup{rd}}\xspace}
+\newcommand  {\nd}{\textsuperscript{\textup{nd}}\xspace}
+\renewcommand{\th}{\textsuperscript{\textup{th}}\xspace}
+
+% To be used to indicate equal contributions of two or more authors in
+% a paper.
+\newcommand{\authorequal}{\kern-0.1em\textsuperscript{\dagger}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Margins macro
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% This permits you to put some comments into the margins of the
+% document; I borrowed this idea from Tufte's works, but in the
+% CV, I only use it to indicate durations.
+
+\usepackage{marginnote}
+\renewcommand*{\raggedrightmarginnote}{}
+\reversemarginpar
+\newcommand{\years}[1]{\marginnote{\scriptsize \textcolor{myGray}{#1}}}
+
+% Required to support footnote references; has to come *after* the
+% `marginnote` package, though, because it redefines some things.
+\usepackage{scrextend}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Section style
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% This styles *all* the sections exactly the same: regular font, with
+% small caps.
+%
+% TODO: Adjust this if you change the font---otherwise, everything will
+% look super strange.
+\usepackage{sectsty}
+\allsectionsfont{\mdseries\scshape}
+
+% This defines the distance between section-titles and content
+% TODO: Adapt this if you need to save/fill space
+\usepackage{titlesec}
+\titlespacing{\section}{0pt}{*4}{*1.5}
+
+% Style for item structure
+\usepackage{changepage} 
+\usepackage{enumitem}
+\usepackage[usenames,dvipsnames]{color}
+
+% Color for text highlights
+% TODO: Change color if you like
+\definecolor{myGray}{gray}{0.44}
+\newcommand{\grey}[1]{\textcolor{myGray}{\emph{#1}}}
+
+% Company you worked for
+\newcommand{\entry}[2]{\years{#1}\textbf{#2}}
+% Your jobtitle
+\newcommand{\descr}[1]{\begin{adjustwidth}{0.5cm}{}\emph{#1}\end{adjustwidth}}
+
+% Your job content as a running text
+\newcommand{\runtext}[1]{\begin{adjustwidth}{0.5cm}{}#1\end{adjustwidth}\vspace{0.2cm}}
+% Your job content as a bullet list
+\newenvironment{bullets}{\setlist{nolistsep}
+\begin{itemize}[itemsep=0.1cm]}{\end{itemize}\vspace{0.2cm}}
+
+% Table for IT skills
+\usepackage{tabularx}
+\usepackage{makecell}
+\renewcommand{\arraystretch}{1.3}
+\newcommand{\trow}[1]{\textcolor{myGray}{\textbf{#1}}}
+\newcommand{\lcol}[1]{\textcolor{myGray}{\emph{#1}}}
+\newcommand{\tech}[1]{\textbf{#1}}
+\newcommand{\lev}[1]{\textcolor{myGray}{#1}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% CV-Photo
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{graphicx}
+\usepackage{wrapfig}
+\usepackage{tikzpagenodes}
+% TODO: Depending on your picture, you need to adjust the shifts
+\newcommand{\CVPhoto}[1]{\begin{tikzpicture}[overlay,remember picture] 
+  \node[anchor=north] at ([yshift=0.15cm, xshift=5.6cm]current page text area.north){\includegraphics[width=0.2\textwidth]{#1}}; 
+  \end{tikzpicture} }
+% Typographical adjustments. If you have longer blocks of texts, such as
+% publications, in your CV, this will give the text a more natural look.
+%
+% TODO: Some people do not like this. If you are among them, just change
+% this or remove it
+\usepackage{microtype}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Colours
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% TODO: redefine this colour if you do not like it.
+\definecolor{dark-blue}{RGB}{15, 15, 130}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% PDF setup
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage[  
+  bookmarks,  % Create PDF bookmarks
+  colorlinks, % Use the link colour from above
+  breaklinks  % Break links in the text
+]{hyperref}
+
+\hypersetup{%
+  urlcolor=dark-blue,
+  linkcolor = dark-blue,
+  pdfauthor={Georges Lemaître},                  % TODO: Add your own name here
+  pdftitle={Georges Lemaître: Curriculum vitae}, % TODO: Add your own name here
+  pdfproducer={}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Penalties
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\clubpenalty         = 10000
+\displaywidowpenalty = 10000
+\widowpenalty        = 10000
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Main document
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% TODO: I belief in separating formatting from content, but if you want you can also put the content below
+\usepackage{subfiles}
+\begin{document}
+    \subfile{CV}
+\end{document}

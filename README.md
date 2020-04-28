@@ -1,48 +1,30 @@
-# latex-cv: A minimal curriculum vitæ template
+# Industry latex-cv: A minimal curriculum vitæ template in German/Swiss style
 
-This repository contains a template for typesetting your curriculum vitæ
-in LaTeX. I am using the template to typeset
-[my](https://bastian.rieck.me) curriculum vitæ&nbsp;(which is also
-available [here](https://bastian.rieck.me/about/cv.pdf)). Since it is
-mostly geared towards an academic CV, this repository contains [an
-example](CV.pdf).
-
-If you find this template useful, I would love to hear about it. Drop me
-a line using a communication channel of your choice.
-
-## Using the template
-
-Rename `CV.tex` to whatever you deem appropriate and edit the file.
-Adjustable or otherwise configurable parts have been marked with a
-`TODO`. Look at these things if you are interested in adjusting the
-look and feel somewhat.
-
-To check that everything is working, you should try to build the
-template via:
-
-    lualatex CV
-
-Note that `lualatex` is strongly recommended here because it makes the
-font selection a breeze.
+This repository is an adaptation of Bastian Riecks template for academic CVs: 
+[Original Repo](https://github.com/Pseudomanifold/latex-cv). Check it out, especially if you write an academic CV. 
+If you like it or find areas for improvement, write me or open an issue. 
 
 ## Requirements
 
-The template currently uses the following fonts:
+The current font is Avenir Next. If you want to use it, you need to put the respective .ttc-file into the folder or change the directory in the preamble of the `styling.tex`-file. 
 
-- Adobe Minion Pro (serif)
-- Cabin Regular (sans serif)
-- Fira Mono (monospace)
+## Using the template
 
-You can either select a different font in the preamble or install them
-using your operating system's package manager.
+I belief in separating the content from the formatting (you can change the formatting once and your different CV-versions will all adapt automatically). The `styling.tex`contains the formatting.
+If you want to change the formatting, look at the `TODO`-comments. 
+The actual content is saved in the `CV.tex`file.
+
+Use luatex to build the project, otherwise it will mess up your formatting:
+
+    latexmk -pdflatex=lualatex -pdf CV
 
 ## License
 
-The template uses the MIT license. Please see the file
-[`LICENSE.md`](LICENSE.md) in the main directory of the repository for
-more details.
+The project uses the MIT-license: [`LICENSE.md`](LICENSE.md)
 
-## Contributing
+## Some CV-tipps
 
-If you require additional features, find some bugs, or just have some
-generic inquiries, please just open an issue in this repository.
+* Adapt your CV for each company (Make it relevant for the position)
+* Use the company-lingo in your CV (for keyword-search algorithms)
+* Be sure that you can backup everything that is written and write about things that are attributable to you
+* Highlight text that the recruiter is looking for 

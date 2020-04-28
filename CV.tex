@@ -1,228 +1,84 @@
-%!TEX TS-program = lualatex
-%!TEX encoding   = UTF-8 Unicode
+\documentclass[styling.tex]{subfiles}
 
-% This is the simplest class to start with. You may want to change the
-% paper format or the standard font size.
-\documentclass[a4paper,11pt]{article}
-
-\usepackage[british]{babel}       % Change this 
-\usepackage         {fontspec}    % Font selection
-\usepackage         {fontawesome} % Symbols/icons
-
-% Change this depending on your own preferences. I personally prefer
-% nice ligatures and 'old style' numbers. Additionally, the way each
-% font is set up ensures that the layout is very uniform---mostly, I
-% achieve this effect using `MatchLowercase`.
-%
-% TODO: Make sure you select a font with small caps here, unless you
-% also change the section style. See below.
-\defaultfontfeatures{Ligatures=TeX}
-\setmainfont[Renderer=Basic,Numbers={Proportional,OldStyle}]{Minion Pro}
-\setsansfont[Scale=MatchLowercase]{Cabin Regular}
-\setmonofont[Scale=MatchLowercase]{Fira Mono}
-
-\setlength{\parindent}   {0pt}  % No indentation
-\setlength{\marginparsep}{10pt} % Separation of margin notes
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Document layout
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-% Permits a very precise adjustment of all the margins. Since a CV is
-% a document where *you* should exhibit *your* preferences, feel free
-% to adjust this the way you want.
-%
-% I am not aware of any good rules here.
-\usepackage{geometry}
-\geometry{
-  a4paper,
-  textwidth      = 14.0cm,
-  textheight     = 25.0cm,
-  marginparwidth =  2.5cm
-}
-
-\setlength{\parindent}{0pt}     % No indentations for paragraphs
-\setlength{\skip\footins}{2cm}  % Reduced footer distance
-
-% A nice way to typeset proper ordinal superscripts
-\newcommand  {\rd}{\textsuperscript{\textup{rd}}\xspace}
-\newcommand  {\nd}{\textsuperscript{\textup{nd}}\xspace}
-\renewcommand{\th}{\textsuperscript{\textup{th}}\xspace}
-
-% To be used to indicate equal contributions of two or more authors in
-% a paper.
-\newcommand{\authorequal}{\kern-0.1em\textsuperscript{\dagger}}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Margins macro
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%
-% This permits you to put some comments into the margins of the
-% document; I borrowed this idea from Tufte's works, but in the
-% CV, I only use it to indicate durations.
-
-\usepackage{marginnote}
-\renewcommand*{\raggedleftmarginnote}{}
-\reversemarginpar
-\newcommand{\years}[1]{\marginnote{\scriptsize #1}}
-
-% Required to support footnote references; has to come *after* the
-% `marginnote` package, though, because it redefines some things.
-\usepackage{scrextend}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Section style
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-% This styles *all* the sections exactly the same: regular font, with
-% small caps.
-%
-% TODO: Adjust this if you change the font---otherwise, everything will
-% look super strange.
-\usepackage{sectsty}
-\allsectionsfont{\mdseries\scshape}
-
-% Typographical adjustments. If you have longer blocks of texts, such as
-% publications, in your CV, this will give the text a more natural look.
-%
-% TODO: Some people do not like this. If you are among them, just change
-% this or remove it
-\usepackage{microtype}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Colours
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-% TODO: redefine this colour if you do not like it.
-\usepackage[usenames,dvipsnames]{color}
-\definecolor{cardinal}{RGB}{196, 30, 58}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% PDF setup
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\usepackage[
-  bookmarks,  % Create PDF bookmarks
-  colorlinks, % Use the link colour from above
-  breaklinks  % Break links in the text
-]{hyperref}
-
-\hypersetup{%
-  urlcolor=cardinal,
-  pdfauthor={Georges Lemaître},                  % TODO: Add your own name here
-  pdftitle={Georges Lemaître: Curriculum vitae}, % TODO: Add your own name here
-  pdfproducer={}
-}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Penalties
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\clubpenalty         = 10000
-\displaywidowpenalty = 10000
-\widowpenalty        = 10000
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Main document
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{document}
 {
-  \Huge \textsc{Georges Lemaître}
+\Huge\textsc{Becky Propergate}
   \begin{flushleft}
     \scriptsize
-      \faPhone\space+1 555 2632
-      \enspace\faEnvelope\space{\href{mailto:lemaitre@example.com}{lemaitre@example.com}}
-      \enspace\faHome\space{\href{https://example.com}{example.com}}
+      \faPhone\space+41 555 55 55
+      \enspace\faEnvelope\space{\href{mailto:test@testmailservice.com}{becky@propergation.com}}
+      \enspace\faMapMarker\space Bahnhofstrasse 20, CH-8000 Zurich \\   
+      \faBirthdayCake\space 8 June 1995 
+      \enspace\faFlag\space Swiss
+      \enspace\faLinkedin\space{\href{linkedin.com/in/moritz-gueck}{\textcolor{dark-blue}{linkedin.com/in}}}
   \end{flushleft}
 }
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section*{Summary}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section*{Research interests}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-Cosmology \textbullet{} Astrophysics \textbullet{} Mathematics
+\CVPhoto{img/CV_photo.jpg} \vspace{-0.7cm}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section*{Education}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\years{1927} \textbf{Ph.D.}\ in physics at MIT\\[.1cm]
-\years{} \emph{The gravitational field in a fluid sphere of uniform invariant density according to the theory of relativity}\\[.05cm]
-\years{} Advisor: Arthur Eddington
-\years{1920} \textbf{D.Sc.}\ in mathematics at Catholic University of Leuven\\[.1cm]
-\years{} \emph{l'Approximation des fonctions de plusieurs variables réelles}\\[.05cm]
-\years{} Advisor: Charles de la Vallée-Poussin\\[0.2cm]
-\years{1911--1914} Studies of civil engineering at Catholic University of Leuven
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section*{Publications}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\years{1946}
-%
-G.\ Lemaître, The Primeval Atom --- An Essay on Cosmogony\\[.2cm]
-%
-\years{1931}
-G.\ Lemaître, L'Hypothèse de l'atome primitif\\[.2cm]
-%
-\years{1927}
-%
-G.\ Lemaître, \emph{Un univers homogène de masse constante et de rayon
-croissant rendant compte de la vitesse radiale des nébuleuses
-extragalactiques}, Annals of the Scientific Society of Brussels, 47A:41.\\[.2cm]
-%
-G.\ Lemaître, Discussion sur l'évolution de l'univers
+\entry{09/2016\\- 08/2019}{Swiss Federal Institute of Technology (ETH) Zurich}
+\descr{MSc. Data Science}
+\begin{bullets}
+      \item \grey{Focus:} Artificial neural networks   
+      \item \grey{Semester project:} Random artificial neural network forest. Used Python (scikit-learn, TensorFlow).
+      \item \grey{Master thesis:} Generative adversarial models to generate new movie villans. Used Python (PyTorch, scikit-learn).
+\end{bullets}
+  
+\entry{09/2011\\- 08/2015}{Technical University of Munich (TUM)}
+\descr{BSc. Robotics}
+\begin{bullets}
+  \item \grey{Focus:} computational robotics
+  \item \grey{Bachelor thesis:} Biosensor for the detection of spoiled meat. 
+\end{bullets}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section*{Honours}
+\section*{Work Experience}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\entry{09/2019\\– 12/2019}{Sun Microsystems}
+\descr{Data science intern }
+\begin{bullets}
+  \item Implemented 10 new ensemble methods for the companies something-something scikit-learn.
+  \item Contributed to setting up a new testing suite for the data-science libraries.
+\end{bullets}
 
-\years{1953} Received the inaugural \emph{Eddington Medal}, awarded
-by the Royal Astronomical Society\\[.2cm]
-%
-\years{1950}
-%
-Received the decennial prize for applied sciences for the period
-1933--1942 by the Belgian government\\[.2cm]
-%
-\years{1936} Received the \emph{Prix Jules Janssen}, the highest
-award of the Société astronomique de France\footnote{The French
-astronomical society}\\[.2cm]
-%
-\years{1934} Received the \emph{Francqui Prize}, the highest Belgian
-scientific distinction, from King Leopold III, proposed by Albert
-Einstein, Charles de la Vallée-Poussin, and Alexandre de Hemptinne\\[.2cm]
-%
-Received the \emph{Mendel Medal} of Villanova University.\\[.2cm]
+\entry{05/2017\\– 06/2018}{VisioPex}
+\descr{Software-development intern}
+\begin{bullets}
+  \item Implemented a new deployment system using Jenkins. 
+  \item Won a competition for the best un-intentionally obfuscated code.
+\end{bullets}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section*{About this template}
+\section*{Extracurricular Activities}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\entry{02/2015\\– 05/2015}{President of the trombone band}
+\runtext{Setting up rehearsals, planning concerts, managing complaints about noise}
 
-This document is modelled after the style of
-\href{https://bastian.rieck.me}{my} own CV, which you can find
-\href{https://bastian.rieck.me/about/cv.pdf}{here}. It was originally
-inspired by the CV of \href{http://nitens.org/taraborelli/cvtex}{Dario
-Taraborelli}, but has since somewhat evolved---or so I like to tell
-myself---from the original template.\\
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{IT/Programming Skills}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\vspace{-0.2cm}
+\begin{table}[H]
+  \begin{tabularx}{\textwidth}{l l X l}
+    \trow{Field} & \trow{Technology} & \trow{Framework} & \trow{Level} \\
+    \lcol{Analytics} & \tech{Python} & Scikit-learn, PyTorch, TensorFlow & \lev{advanced} \\
+    & \tech{R} & lme4, R shiny, readr & \lev{proficient} \\
+    \lcol{Databases} & \tech{Relational} & PostgreSQL, MySQL, HBase & \lev{proficient} \\
+    & \tech{NoSQL} &  MongoDB, HDFS & \lev{basic} \\
+    \lcol{Software} & \multicolumn{3}{l}{VS code, Vim, MS Office, Adobe CS} 
+  \end{tabularx}
+\end{table}
 
-This document does not offer many special features, except for the
-\verb|\years| macro, which can be used to typeset small notes in the
-margin of the document. I use them to indicate \emph{durations}, but you
-could also repurpose it to have small annotations in the style of Edward
-Tufte. In addition, the template uses two special fonts for sans-serif
-typesetting and monospace typesetting. I do not tend to use the former
-for many things, but you might like it for typesetting the titles of
-publications. The latter font type, though, I often use in order to
-describe software projects or packages, such as \texttt{PyTorch} or
-\texttt{scikit-learn}.\\
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{Languages}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\emph{German:} Mother tongue \\
+\emph{English:} Fluent (Cambridge Advanced Certificate) \\
 
-That's all there is to it---enjoy the template \& feel free to open
-tickets for comments or feedback.
+
 
 \end{document}
